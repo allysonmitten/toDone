@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h2 class="title">DASHBOARD</h2><br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-warning">
+				    <div class="panel-heading">
+				        <h3 class="panel-title-dashboard">Jobs You've Posted<span class="badge">{{numPoster}}</span></h3>
+				    </div>
+				    <div class="panel-body">
+				    	<div ng-if="numPoster === 0"> 
+				    		<p>You haven't posted any task yet</p></div>
+			        <div ng-repeat="task in taskPoster">
+			        	<a style="color: #12172a; font-family: crush; font-size: 19px" ng-href="#/browse/{{task.taskId}}"> {{task.title}} </a>
+			        </div>
+				    </div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-success">
+				    <div class="panel-heading">
+				        <h3 class="panel-title-dashboard">Tasks You've Accepted <span class="badge">{{numRunner}}</span></h3>
+				    </div>
+				    <div class="panel-body">
+				    	<div ng-if="numRunner === 0"> 
+				    		<p>You haven't accepted any jobs yet...</p></div>		    	
+			        <div ng-repeat="task in taskRunner">
+			        	<a style="color: #12172a; font-family: crush; font-size: 19px" ng-href="#/browse/{{task.taskId}}"> {{task.title}} </a>
+			        </div>
+				    </div>
+				</div>				
+			</div>
+		</div>
+
+	</div>	
+</div>

@@ -1,0 +1,240 @@
+/*Custom Fonts*/
+@font-face {
+  font-family: 'crush';
+  src:url('../fonts/MyFirstCrush.ttf');
+}
+@font-face {
+  font-family: 'rns';
+  src:url('../fonts/RNS.ttf');
+}
+@font-face {
+  font-family: 'Blackfat';
+  src:url('../fonts/Blackfat.ttf');
+}
+@font-face {
+  font-family: 'snaps';
+  src:url('../fonts/snaps.otf');
+}
+@font-face {
+  font-family: 'scribble';
+  src:url('../fonts/scribble.ttf');
+}
+@font-face {
+  font-family: 'bern';
+  src:url('../fonts/bern.ttf');
+}
+/*Underlying Background - Set to Navy*/
+
+body {
+  background: #12172a;
+}
+p {
+  font-family: crush;
+  color: #12172a;
+}
+h2 {
+  color: #5d9f9c;
+  font-family: bern;
+  font-size: 40px;
+}
+
+/* Changed color of price in browse*/
+a, a:hover, a:focus {
+  color: #ffe7aa;
+}
+
+.inputstyle {
+  color: #ffffff;
+}
+
+.jumbotron {
+  background-color: #175362 !important;
+}
+
+/* Form */
+
+.auth-forms {
+  max-width:400px;
+  margin:0 auto;  
+  padding:1px 25px 25px 25px;
+  font-family: crush;
+  font-size: 20px;
+}
+.btn-forms {
+  background-color: #5d9f9c;
+  color: #5d9f9c;
+  border: 3px;
+}
+
+.postbuttonstyle {
+  border-radius: 10px !important;
+}
+/* Nav Bar */
+
+.navbar {
+  margin-bottom: 0px;
+  background-color: #12172a;
+  border-bottom: #ff3399 !important
+}
+.navbar-brand {
+  color: #5d9f9c !important;
+  font-family: Blackfat;
+  font-size: 40px;
+}
+.navstyle {
+  color: #f36968 !important;
+  font-family: crush;
+  font-size: 20px;
+}
+.navstyle2 {
+  color: #f36968 !important;
+  font-family: crush;
+}
+
+.title {
+  text-align: center;
+}
+
+.img-circle.gravatar {
+  width: 30px;
+}
+
+/* Panel */
+
+.panel-title {
+  color: #ffffff;
+  font-family: bern;
+  font-weight: bold;
+}
+.panel-title-dashboard {
+  color: #ffffff;
+  font-family: crush;
+  font-weight: bold;
+}
+
+.panel-body{
+  background-color: #fde19e !important;
+}
+
+.img-browse {
+  padding-top: 30px;
+}
+
+.panel-success > .panel-heading .badge {
+  color: #c05251;
+  background-color: #FFFFFF;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 0px;
+}
+/*post a task heading color*/
+.panel-heading {
+  background-color: #f36968 !important;
+}
+.btn-warning {
+  background-color: #f36968 !important;
+}
+
+.panel-warning > .panel-heading .badge {
+  color: #c05251;
+  background-color: #FFFFFF;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+/* Task Header */
+
+.price-tag {
+  font-size: 40px;
+  font-weight: 300;  
+  margin-top: 20px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+.landing {
+  width: 600px;
+  height: 600px;
+}
+
+.panel-warning {
+  background-color: #f0d697; 
+}
+/* Task List */
+
+.list-group .list-group-item .row-picture img {
+  width: 50px;
+  height: 50px;
+}
+
+.list-group .list-group-item .list-group-item-heading {
+  color: rgba(0,0,0,.77);
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 15px;
+}
+
+.list-group .list-group-item .row-content {
+  float: left;
+  margin-top: 0;
+  width: 40%;
+  width: calc(100% - 160px);
+  height: 60px;
+}
+
+.list-group .list-group-item .payment {
+  float: right;
+  margin-top: 0;  
+  width: 85px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.list-group .list-group-item .payment .status{
+  font-size: 14px;
+  position: absolute;
+  padding: 5px;
+  right: 5px;
+  bottom: 5px;
+  width: 90px;
+  height: 25px; 
+}
+
+.list-group-item-text {
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.open {
+  background-color: #12172a;
+}
+
+.assigned {
+  background-color: #9e9e9e;
+}
+
+.completed {
+  background-color: #9e9e9e;
+}
+
+/* Comments */
+
+.well.well-sm.cmt {
+  color: rgba(94, 94, 94, 1);
+  font-size: 14px;
+}
+
+.cmt-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.cmt-time {
+  font-size: 12px;
+}
+
+.img-circle.comment.gravatar {
+  width: 35px;
+  margin-right: 5px;
+}

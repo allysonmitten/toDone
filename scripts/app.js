@@ -21,7 +21,19 @@ var app = angular
   .config(function ($routeProvider) {
     $routeProvider      
       .when('/', {
-        templateUrl: 'views/landing.html',   
+        templateUrl: 'views/landing.html',
+        })
+      .when('/browse/', {
+        templateUrl: 'views/browse.html',
+        controller: 'BrowseController'   
+      })
+      .when('/registertodoner/', {
+        templateUrl: 'views/registerdoner.html',
+        controller: 'AuthController'   
+      })
+      .when('/todoners/', {
+        templateUrl: 'views/todoners.html',
+        controller: 'DoneController'   
       })
       .when('/browse/:taskId', {
         templateUrl: 'views/browse.html',

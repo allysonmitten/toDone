@@ -1,5 +1,5 @@
 <div class="auth-forms title">
-  <h2>REGISTER</h2>
+  <h2>JOIN OUR TEAM</h2>
   <form ng-submit="register(user)">
     
     <div class="input-group">
@@ -21,6 +21,20 @@
       	<span style="color: #5d9f9c; font-size: 18px" class="glyphicon glyphicon-lock" aria-hidden="true"></span>
       </div>
       <input style="color: white" type="password" ng-model="user.password" placeholder="Password" class="form-control" required>
+    </div><br>
+
+    <div class="input-group">
+      <div class="input-group-addon">
+      	<span style="color: #5d9f9c; font-size: 18px" class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+      </div>
+      <input style="color: white" type="resume" ng-model="user.resume" placeholder="Resume - Paste Text" class="form-control" required>
+    </div><br>
+
+    <div class="input-group">
+      <div class="input-group-addon">
+      	<span style="color: #5d9f9c; font-size: 18px" class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+      </div>
+      <input style="color: white" type="experience" ng-model="user.experience" placeholder="Experience - Example: Experience with Pets" class="form-control" required>
     </div><br>
 
     <input type="submit" value="Register" class="btn btn-danger" style="background-color: #5d9f9c; color: #12172a; font-weight: bold; font-family: bern">

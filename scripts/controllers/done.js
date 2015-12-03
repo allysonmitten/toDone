@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('landingController', function($scope, $routeParams, toaster, Task, Auth, Comment, Offer) {
+app.controller('BrowseController', function($scope, $routeParams, toaster, Task, Auth, Comment, Offer) {
 
 	$scope.searchTask = '';		
 	$scope.tasks = Task.all;

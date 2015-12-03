@@ -8,10 +8,10 @@
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+							<span style="color: white" class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</div>
-			      <input type="text" ng-model="searchTask" class="form-control" placeholder="Search">
-			    </div>	
+			      		<input style="color: white; font-family: crush" type="text" ng-model="searchTask" class="form-control" placeholder="Search">
+			    	</div>	
 				</div>
 				
 				<!-- TASK LIST -->	
@@ -21,7 +21,7 @@
 				            <img class="circle" ng-src="{{task.gravatar}}">
 				        </div>
 				        <div class="row-content">
-				            <h4 class="list-group-item-heading">{{task.title | limitTo:25}}{{ task.title.length > 25? "..." : ""}}</h4>
+				            <h4 class="list-group-item-heading" style="color: #fde19e; font-family: crush; font-size: 20px">{{task.title | limitTo:25}}{{ task.title.length > 25? "..." : ""}}</h4>
 				            <span class="list-group-item-text">
 				            	<span am-time-ago="task.datetime"></span>
 				            </span>		            
@@ -47,13 +47,13 @@
 			
 			<!-- HEADER -->
 			<div class="row">
-				<div class="col-md-8">
-					<h3>{{ selectedTask.title }}</h3>
+				<div style="color: #fde19e; font-size: 15px; font-family: crush"class="col-md-8">
+					<h3 style="color: #fde19e; font-family: crush">{{ selectedTask.title | uppercase }}</h3>
 					<span>
 						<img ng-src="{{ selectedTask.gravatar }}" class="img-circle gravatar">
-						Posted by {{selectedTask.name}} -
+						Posted by {{selectedTask.name}}
 						<span am-time-ago="selectedTask.datetime"></span>&nbsp;
-						<span class="label status {{selectedTask.status}}">{{ selectedTask.status }}</span>
+						<span class="circle status {{selectedTask.status}}">{{ selectedTask.status }}</span>
 					</span>								
 				</div>
 				
@@ -90,9 +90,9 @@
 			<!-- DESCRIPTION -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="panel panel-default">
-					    <div class="panel-heading">
-					        <h3 class="panel-title">Description</h3>
+					<div class="panel-default">
+					    <div class="panel-heading-bdescription">
+					        Job Description
 					    </div>
 					    <div class="panel-body">
 					        {{ selectedTask.description }}
@@ -101,51 +101,47 @@
 				</div>	
 			</div>
 
+			<br>	
+
 			<!-- OFFERS -->			
 			<div class="row">
 				<div class="col-md-12">
-					<div class="panel panel-default">
-					    
-					    <div class="panel-heading">
-					        <h3 class="panel-title">Offers</h3>
+					<div class="panel-default">
+					    <div class="panel-heading-bdescription">
+					    	Offers
 					    </div>
-					    
 					    <div class="panel-body">		
-								
-								<div class="title" ng-hide="offers && offers.length > 0">
-									<span>NO OFFER FOR THIS TASK YET</span>	
-								</div>	
-
+							<div class="title" ng-hide="offers && offers.length > 0">
+								<span>NO OFFER FOR THIS TASK YET</span>	
+							</div>	
 								<div class="row" ng-repeat="offer in offers">
 									<div class="col-md-10">
-										<button ng-show="offer.accepted" class="btn btn-success btn-xs disabled">Assigned</button>
-										
-										<button ng-show="isTaskCreator(selectedTask) && isOpen(selectedTask)" class="btn btn-info btn-xs" ng-click="acceptOffer(offer.$id,offer.uid)">Accept - ${{offer.total}}</button>											
+										<button ng-show="offer.accepted" class="btn btn-success postbuttonstyle btn-xs disabled">Assigned</button>
+										<button ng-show="isTaskCreator(selectedTask) && isOpen(selectedTask)" class="btn btn-info btn-xs" ng-click="acceptOffer(offer.$id,offer.uid)">Accept - ${{offer.total}}</button>		
 										<button ng-show="isOfferMaker(offer) && isOpen(selectedTask)" class="btn btn-danger btn-xs" ng-click="cancelOffer(offer.$id)">Cancel My Offer - ${{offer.total}}</button>
 
 										<img ng-src="{{offer.gravatar}}" class="img-circle offer gravatar">
 										<span>{{offer.name}}</span>
 									</div>
 								</div><br>
-
 					    </div>
 					</div>			
 				</div>	
 			</div>
-
+			<br>
 			<!-- COMMENTS -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="panel panel-default">
+					<div class="panel-default">
 					    
-					    <div class="panel-heading">
-					        <h3 class="panel-title">Comments</h3>
+					    <div class="panel-heading-bdescription">
+					        Comments
 					    </div>
 					    
 					    <div class="panel-body">
 
 					    	<div class="title" ng-hide="comments && comments.length > 0">
-									<span>NO COMMENT ABOUT THIS TASK</span>	
+									<span>NO COMMENTS ABOUT THIS TASK</span>	
 								</div><br>
 
 								<div class="row" ng-repeat="com in comments">
@@ -174,7 +170,7 @@
 									    </div>
 
 											<span class="pull-right">
-												<input type="submit" class="btn btn-info" value="Comment">
+												<input type="submit" class="btn btn-info postbuttonstyle" value="Comment">
 											</span>
 										</form>
 									</div>

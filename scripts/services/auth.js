@@ -12,6 +12,8 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
       var profile = {
         name: user.name,
         email: user.email,
+        resume: user.resume,
+        experience: user.experience,
         gravatar: get_gravatar(user.email, 40)
       };
 
@@ -30,8 +32,9 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
     },
 
     register: function(user) {
-      return auth.$createUser({email: user.email, password: user.password})
+      return auth.$createUser({email: user.email, password: user.password, resume: user.resume, experience: user.experience})
         .then(function() {
+          console.log(user.resume)
           // authenticate 
           return Auth.login(user);
         })

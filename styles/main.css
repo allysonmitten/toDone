@@ -111,13 +111,30 @@ a, a:hover, a:focus {
   font-family: crush;
   font-weight: bold;
 }
-
+.panel-default {
+  border: 6px solid #12172a !important;
+  border-radius: 8px;
+  background-color: #12172a;
+}
+.panel-title-browse{
+  background-color: #5d9f9c;
+  color: #ffffff;
+  font-family: crush;
+}
 .panel-body{
   background-color: #fde19e !important;
 }
 
 .img-browse {
   padding-top: 30px;
+}
+.panel-heading-bdescription {
+  color: #5d9f9c;
+  font-family: crush !important;
+  font-size: 25px !important;
+  height: 30px;
+  /*margin-left: 5px;*/
+  margin-top: 0px;
 }
 
 .panel-success > .panel-heading .badge {
@@ -134,6 +151,9 @@ a, a:hover, a:focus {
 .btn-warning {
   background-color: #f36968 !important;
 }
+.btn-changepass {
+  background-color: #5d9f9c;
+}
 
 .panel-warning > .panel-heading .badge {
   color: #c05251;
@@ -149,7 +169,9 @@ a, a:hover, a:focus {
   font-weight: 300;  
   margin-top: 20px;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: #12172a;
+  border-radius: 8px;
+  color: #5d9f9c;
 }
 .landing {
   width: 600px;
@@ -189,6 +211,16 @@ a, a:hover, a:focus {
   font-size: 30px;
   line-height: 30px;
 }
+.statusbrowse {
+  font-size: 20px;
+  padding: 5px;
+  right: 5px;
+  bottom: 5px;
+  width: 90px;
+  height: 25px; 
+  background-color: #ff3399 !important;
+  border-radius: 90px;
+}
 
 .list-group .list-group-item .payment .status{
   font-size: 14px;
@@ -205,7 +237,9 @@ a, a:hover, a:focus {
   margin-bottom: 0;
   line-height: 1.3;
 }
-
+.circle {
+  border: 1px solid #12172a;
+}
 .open {
   background-color: #12172a;
 }
@@ -237,4 +271,9 @@ a, a:hover, a:focus {
 .img-circle.comment.gravatar {
   width: 35px;
   margin-right: 5px;
+}
+
+.dropdown-menu{
+  background-color: #12172a;
+  color: white !important;
 }

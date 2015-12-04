@@ -44,7 +44,7 @@ h4 {
   vertical-align: middle !important;
 }
 h5 {
-  color: #12172a!important; 
+  color: #5d9f9c !important; 
   /*font-family: crush !important; */
 
   vertical-align: middle !important;
@@ -80,6 +80,9 @@ a, a:hover, a:focus {
 
 .postbuttonstyle {
   border-radius: 10px !important;
+}
+.adminbuttonstyle {
+  border-radius: 10px 0px 0px 10px !important;
 }
 /* Nav Bar */
 

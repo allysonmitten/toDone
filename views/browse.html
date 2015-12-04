@@ -63,18 +63,18 @@
 						
 						<div ng-show="isTaskCreator(selectedTask) && isOpen(selectedTask)">
 							<div class="btn-group">
-							    <a href="" class="btn btn-warning">Admin</a>
+							    <a href="" class="btn btn-warning adminbuttonstyle">Admin</a>
 							    <a href="" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
 							    <ul class="dropdown-menu">
-							        <li><a href="" data-toggle="modal" data-target="#ediModal">EDIT TASK</a></li>							        
+							        <li><a style="color: white" href="" data-toggle="modal" data-target="#ediModal">EDIT TASK</a></li>							        
 							        <li class="divider"></li>
-							        <li><a href="" ng-click="cancelTask(selectedTask.$id)">CANCEL TASK</a></li>
+							        <li><a style="color: white" href="" ng-click="cancelTask(selectedTask.$id)">CANCEL TASK</a></li>
 							    </ul>
 							</div>
 						</div>
 
 						<div ng-show="isOpen(selectedTask) && !isTaskCreator(selectedTask) && !alreadyOffered">
-							<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#offModal">Make an Offer</button>
+							<button class="btn btn-warning postbuttonstyle btn-sm" data-toggle="modal" data-target="#offModal">Make an Offer</button>
 						</div>
 
 						<div ng-show="isAssignee(selectedTask) && !isCompleted(selectedTask)">
@@ -170,7 +170,7 @@
 									    </div>
 
 											<span class="pull-right">
-												<input type="submit" class="btn btn-info postbuttonstyle" value="Comment">
+												<input type="submit" class="btn btn-warning postbuttonstyle" value="Comment">
 											</span>
 										</form>
 									</div>

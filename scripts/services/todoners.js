@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('todoners', function(FURL, $firebase, Auth) {
+app.factory('Todoners', function(FURL, $firebase, Auth) {
 
 	var listUsers = {
 		all: profile,

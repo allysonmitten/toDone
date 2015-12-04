@@ -1,25 +1,38 @@
 <div class="row">
-	
-	<!-- LEFT PANEL -->
-	<div class="col-md-offset-1 col-md-4">
-
-		<div class="list-group">
-				<!-- SEARCH TOOL -->
+	<div class="list-group">
+				<!-- SEARCH TOOL 
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">
 							<span style="color: white" class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</div>
-			      		<input style="color: white; font-family: crush" type="text" ng-model="searchTask" class="form-control" placeholder="Search">
+			      		<input style="color: white; font-family: crush" type="text" ng-model="searchUser" class="form-control" placeholder="Search">
 			    	</div>	
 				</div>
-				
+				-->
 				<!-- USER LIST -->	
-				<div ng-repeat="user in users">
-                    <p>{{user.name}}</p>
-                </div>
-			
+		<a ng-repeat="user in users" ng-href="#/todoners/{{profile.$id}}">
+			<div class="list-group-item">
+				<div class="row-picture">
+					<img class="circle" ng-src="{{user.gravatar}}">
+				</div>
+				<div class="row-content">
+					<h5 class="list-group-item-heading">NAME: {{user.name}}</h5>
+					<h5 class="list-group-item-heading">EMAIL: {{user.email}}</h5>
+					<h5 class="list-group-item-heading">EXPERIENCE: {{user.experience}}</h5>
+					<h5 class="list-group-item-heading">RESUME: {{user.resume |  limitTo:25}}</h5>
+				    <span class="list-group-item-text">
+				    <span am-time-ago="task.datetime"></span>
+				    </span>		            
+				</div>
+			</div>		    
+			<div class="list-group-separator"></div>
+		</a>
+    </div>
+</div>
+            
+            
 
-	<!-- RIGHT PANEL -->
-	<div class="col-md-6">
+
+
 

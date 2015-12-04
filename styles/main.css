@@ -37,6 +37,18 @@ h2 {
   font-family: bern;
   font-size: 40px;
 }
+h4 {
+  color: #fde19e !important; 
+  font-family: crush !important; 
+  font-size: 20px !important; 
+  vertical-align: middle !important;
+}
+h5 {
+  color: #12172a!important; 
+  /*font-family: crush !important; */
+
+  vertical-align: middle !important;
+}
 
 /* Changed color of price in browse*/
 a, a:hover, a:focus {
@@ -164,6 +176,9 @@ a, a:hover, a:focus {
 
 /* Task Header */
 
+.fadedbackground  {
+  background-image: src="../images/fadedbackground.png" !important;
+}
 .price-tag {
   font-size: 40px;
   font-weight: 300;  
@@ -200,7 +215,7 @@ a, a:hover, a:focus {
   margin-top: 0;
   width: 40%;
   width: calc(100% - 160px);
-  height: 60px;
+  height: 80px;
 }
 
 .list-group .list-group-item .payment {

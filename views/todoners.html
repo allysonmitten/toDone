@@ -15,27 +15,7 @@
 				</div>
 				
 				<!-- USER LIST -->	
-				{{user}}
-					<div class="list-group-item">
-				        <div class="row-picture">
-				            <img class="circle" ng-src="{{task.gravatar}}">
-				        </div>
-				        <div class="row-content">
-				            <h4 class="list-group-item-heading" style="color: #fde19e; font-family: crush; font-size: 20px">{{task.name}}</h4>
-				            <span class="list-group-item-text">
-				            	<span am-time-ago="task.datetime"></span>
-				            </span>		            
-				        </div>
-				        <div class="payment">
-				        	<div>${{task.total}}</div>
-				        	<span class="label status {{task.status}}">{{task.status}}</span>		        	
-				        </div>
-				    </div>		    
-			    	<div class="list-group-separator"></div>
-		    	</a>
-		</div>
-
-	</div>
+				<p>{{user}}</p>
 
 	<!-- RIGHT PANEL -->
 	<div class="col-md-6">

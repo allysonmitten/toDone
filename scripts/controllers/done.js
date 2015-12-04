@@ -1,101 +1,75 @@
 'use strict';
 
-app.controller('BrowseController', function($scope, $routeParams, toaster, Task, Auth, Comment, Offer) {
-
-	$scope.searchTask = '';		
-	$scope.tasks = Task.all;
-
-	$scope.user = Auth.user;
-	$scope.signedIn = Auth.signedIn;
-
-	$scope.listMode = true;
+app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 	
-	if($routeParams.taskId) {
-		var task = Task.getTask($routeParams.taskId).$asObject();
-		$scope.listMode = false;
-		setSelectedTask(task);	
-	}	
-		
-	function setSelectedTask(task) {
-		$scope.selectedTask = task;
-		
-		if($scope.signedIn()) {
-			
-			Offer.isOfferred(task.$id).then(function(data) {
-				$scope.alreadyOffered = data;
-			});
+	var ref = new Firebase(FURL);
+	var auth = $firebaseAuth(ref);
 
-			$scope.isTaskCreator = Task.isCreator;
-			$scope.isOpen = Task.isOpen;
-			$scope.block = false;
-			$scope.isOfferMaker = Offer.isMaker;
-			$scope.isAssignee = Task.isAssignee;
-			$scope.isCompleted = Task.isCompleted;
+	var Auth = {
+		user: {},
+
+    createProfile: function(uid, user) {
+      var profile = {
+        name: user.name,
+        email: user.email,
+        resume: user.resume,
+        experience: user.experience,
+        gravatar: get_gravatar(user.email, 40)
+      };
+
+      var profileRef = $firebase(ref.child('profile'));
+      return profileRef.$set(uid, profile);
+    },
+
+    getProfile: function(uid) {
+      return $firebase(ref.child('profile').child(uid)).$asObject();
+    },
+
+    login: function(user) {
+      return auth.$authWithPassword(
+        {email: user.email, password: user.password}
+      );
+    },
+
+    register: function(user) {
+      return auth.$createUser({email: user.email, password: user.password, resume: user.resume, experience: user.experience})
+        .then(function() {
+          console.log(user.resume)
+          // authenticate 
+          return Auth.login(user);
+        })
+        .then(function(data) {
+          // store user data in Firebase after creating account
+          return Auth.createProfile(data.uid, user);
+        });
+    },
+
+    logout: function() {
+      auth.$unauth();
+    },
+
+		changePassword: function(user) {      
+			return auth.$changePassword({email: user.email, oldPassword: user.oldPass, newPassword: user.newPass});
+		},
+
+    signedIn: function() {
+      return !!Auth.user.provider;
+    },
+
+    requireAuth: function() {
+      return auth.$requireAuth();
+    }
+	};
+
+	auth.$onAuth(function(authData) {
+		if(authData) {      
+      angular.copy(authData, Auth.user);
+      Auth.user.profile = $firebase(ref.child('profile').child(authData.uid)).$asObject();			
+		} else {
+      if(Auth.user && Auth.user.profile) {
+        Auth.user.profile.$destroy();
+      }
+
+      angular.copy({}, Auth.user);
 		}
-		
-		$scope.comments = Comment.comments(task.$id);
-		$scope.offers = Offer.offers(task.$id);		
-	};
-
-	$scope.cancelTask = function(taskId) {
-		Task.cancelTask(taskId).then(function() {
-			toaster.pop('success', "This task is cancelled successfully.");
-		});
-	};
-
-	$scope.completeTask = function(taskId) {
-		Task.completeTask(taskId).then(function() {
-			toaster.pop('success', "Congratulation! You have completed this task.");
-		});
-	};
-
-	$scope.addComment = function() {
-		var comment = {
-			content: $scope.content,
-			name: $scope.user.profile.name,
-			gravatar: $scope.user.profile.gravatar
-		};
-
-		Comment.addComment($scope.selectedTask.$id, comment).then(function() {				
-			$scope.content = '';		
-		});		
-	};
-
-	//Offer
-
-	$scope.makeOffer = function() {
-		var offer = {
-			total: $scope.total,
-			uid: $scope.user.uid,			
-			name: $scope.user.profile.name,
-			gravatar: $scope.user.profile.gravatar 
-		};
-
-		Offer.makeOffer($scope.selectedTask.$id, offer).then(function() {
-			toaster.pop('success', "Your offer has been placed.");
-			
-			
-			$scope.alreadyOffered = true;
-			$scope.total = '';
-			$scope.block = true;			
-		});		
-	};
-
-	$scope.cancelOffer = function(offerId) {
-		Offer.cancelOffer($scope.selectedTask.$id, offerId).then(function() {
-			toaster.pop('success', "Offer Cancelled.");
-
-			$scope.alreadyOffered = false;
-			$scope.block = false;			
-		});
-	};
-
-	$scope.acceptOffer = function(offerId, runnerId) {
-		Offer.acceptOffer($scope.selectedTask.$id, offerId, runnerId).then(function() {
-			toaster.pop('success', "Offer is accepted successfully!");
-
-			Offer.notifyRunner($scope.selectedTask.$id, runnerId);
-		});
-	};
-	
-});
+	});

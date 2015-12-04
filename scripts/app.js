@@ -33,7 +33,7 @@ var app = angular
       })
       .when('/todoners/', {
         templateUrl: 'views/todoners.html',
-        controller: 'DoneController'   
+        controller: 'AuthController'   
       })
       .when('/browse/:taskId', {
         templateUrl: 'views/browse.html',

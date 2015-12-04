@@ -15,7 +15,10 @@
 				</div>
 				
 				<!-- USER LIST -->	
-				<p>{{listUser}}</p>
+				<div ng-repeat="user in users">
+                    <p>{{user.name}}</p>
+                </div>
+			
 
 	<!-- RIGHT PANEL -->
 	<div class="col-md-6">

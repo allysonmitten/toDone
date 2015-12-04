@@ -5,6 +5,8 @@
 'use strict';
 
 app.controller('TodonersController', function($scope, $location, toaster, Auth) {
-	$scope.getUsers = listUsers;
+	Auth.listUsers().$loaded().then(function(users) {
+        $scope.users = users;
+    });
 	
 });

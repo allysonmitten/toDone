@@ -8,18 +8,11 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 	var Auth = {
 		user: {},
 
-    listUsers: function(uid, user) {
-      var listUsers = {
-        name: user.name,
-        email: user.email,
-        resume: user.resume,
-        experience: user.experience,
-        gravatar: get_gravatar(user.email, 40)
-      };
+    listUsers: function() {
 
-      varlistUsers = $firebase(ref.child('listUsers'));
-      return $profileRef.$set(uid, profile);
-    },
+      return $firebase(ref.child('profile')).$asArray();
+
+      },
 
     createProfile: function(uid, user) {
       var profile = {
